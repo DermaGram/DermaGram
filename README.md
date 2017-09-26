@@ -8,7 +8,7 @@ All images used for *training* and *evaluation* will be saved to Imgur. The name
 * Original Data Source: 
   - ISIC-archive: https://isic-archive.com/
 * Imgur Albums:
-  - TEST: https://imgur.com/a/TNsR2  
+  - https://dermagram.imgur.com/
 
 ### II. Web Design
 The User-Interface (UI) will be designed using Flask - a microframework for Python-based web applications.
