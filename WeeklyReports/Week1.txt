@@ -1,0 +1,18 @@
+Date: 18 Sep 2017
+
+Andrew
+- Created github page
+- Created Imgur account
+- Resized images
+- Uploaded images to imgur
+
+Jaspal
+- Trained Inception-v3 using tutorial images
+
+Shondell
+- Trained Inception-v3 using tutorial images
+- Investigated HPC usage
+
+Steven
+- Researched Flask for webframe
+- Built local website w/ 'upload' button
