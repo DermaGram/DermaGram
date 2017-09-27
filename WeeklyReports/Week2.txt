@@ -1,9 +1,20 @@
 Date: 26 Sep 2017
 
 Andrew
+- Create new albums in imgur w/ refined classifications (e.g. Melanoma_Malignant)
+- Train Inception-v3 using tutorial data
+- Integrate Imgur API w/ website to store/retrieve images.
 
 Jaspal
+- Train Inception-v3 using tutorial data
+- Investigate 
+  a) Model parameters w.r.t. size of input (i.e. image dimensions) and output (i.e. classification/probability. The professor mentioned the output is normalized using parameter 'activation fraction' and setting it to to 'softmax'
+  b) How the website can handle requests sent to and responses received from the model. For example, do we need a running instance of the model up at all times or can it be a simple script that's initiated everytime a user requests an image to be classified?
 
 Shondell
+- Work w/ Steven to set up a database (e.g. mySql) to store user's profile image (e.g. UUID, Age, Location, ImageID)
+- Research encryption methods to secure transfer of data between website and external databases.
 
 Steven
+- Work w/ Shondell to set up a database (e.g. mySql) to store user's profile image (e.g. UUID, Age, Location, ImageID)
+- Get the 'upload' button working to actually upload any file type (could be a simple .txt) and storing the file name and upload timestamp to the db you setup w/ Shondell.
