@@ -1,0 +1,7 @@
+This is how I have the DermaGram App structured on my system at this point.
+
+I have a folder in Documents named Python. This is the path on my Windows machine: C:\Users\Steve\Documents\Python. I have placed the FlaskTest1.py file in the Python folder. I have another subfolder named templates (Python/templates). I have these 3 files within templates: home2.html, about2.html, layout2.html. I have another subfolder named static (Python/static). I have a subfolder in static named css (Python/static/css). I have this 1 file within css: main2.css.
+
+Running the App: I can just double click on FlaskTest1.py and the console window pops up and the program starts up since I have Python installed on my system. I then go to a Web browser and type http://localhost:5000, hit enter, and the program starts running.
+
+Let me know if you have any issues after you set the App up and try to run it.
