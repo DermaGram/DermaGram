@@ -1,0 +1,13 @@
+WORK IN PROGRESS.....
+
+I. Setup VM
+ - download vagrant (or docker)
+ - download VirtualBox
+ - setup VM
+II. Setup Ubuntu
+ - update to ubuntu 14.04
+III. Install packages (python 2.7.9, bazel, git, etc)
+ - ubuntu 14.04 comes w/ python 2.7.6, so upgrade to python 2.7.9 using https://www.ralphlepore.net/installing-python-279-on-ubuntu-1404-lts/
+ - bazel install here: https://docs.bazel.build/versions/master/install-ubuntu.html#install-on-ubuntu
+IV. Setup TensorFlow
+V. Fine tune model using bazel 
