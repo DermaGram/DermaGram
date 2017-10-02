@@ -12,8 +12,8 @@ Jaspal
   b) How the website can handle requests sent to and responses received from the model. For example, do we need a running instance of the model up at all times or can it be a simple script that's initiated everytime a user requests an image to be classified?
 
 Shondell
-- Work w/ Steven to set up a database (e.g. mySql) to store user's profile image (e.g. UUID, Age, Location, ImageID)
-- Research encryption methods to secure transfer of data between website and external databases.
+- Work w/ Steven to set up a database (e.g. mySql) to store user's profile image (e.g. UUID, Age, Location, ImageID) (Done)
+- Research encryption methods to secure transfer of data between website and external databases. 
 
 Steven
 - Work w/ Shondell to set up a database (e.g. mySql) to store user's profile image (e.g. UUID, Age, Location, ImageID)
