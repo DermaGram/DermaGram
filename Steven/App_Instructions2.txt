@@ -1,0 +1,57 @@
+Please find the following files:
+
+style.css
+login.html
+app.py
+dummy.py
+hello.py
+tabledef.py
+tutorial.db
+
+Setup:
+
+Create a directory named FlaskLogin. In that directory place a subdirectory names templates and another subdirectory named static.
+
+Place login.html within templates.
+
+place style.css within static.
+
+The other files can go directly in FlaskLogin.
+
+Navigate to FlaskLogin in your shell.
+
+Install Flask using this command:
+
+pip install flask
+
+You'll need to have SQLAlchemy installed so install it with the following command:
+
+pip install Flask-sqlAlchemy
+
+You'll need to run these 2 commands:
+
+python tabledef.py
+
+python dummy.py
+
+These will get the database up and running.
+
+To run the program issue this command:
+
+python app.py
+
+In your Web Browser type localhost:5000
+
+The Web site should come up.
+
+The Database has been programmed to accept 3 user-password combinations:
+
+admin password
+
+python python
+
+jumpiness python
+
+Anything other than those will be rejected.
+
+If you have any questions let me know.
