@@ -13,3 +13,5 @@ Jaspal
 Shondell
 
 Steve
+- Working on learning Flask and how to join the Login page to the previous pages I created
+- Signed up for a mySQL account with Oracle
