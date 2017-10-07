@@ -1,1 +1,15 @@
+Date: 03 Oct 2017
 
+Andrew
+- Resize images to 299x299
+- Refine image classification albums on imgur by diagnosis (e.g. melanoma, nevus, basal cell carcinoma)
+- Test hooking imgur API into our app.
+- Talk w/ imgur support team to fix registration process.
+- Retrain tutorial model using 'transfer knowledge' instead of 'fine-tuning'
+- Research tensorflow 'servicing' API to hook model into our app.
+
+Jaspal
+
+Shondell
+
+Steve
