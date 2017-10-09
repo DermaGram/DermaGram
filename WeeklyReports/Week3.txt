@@ -11,6 +11,12 @@ Andrew
 Jaspal
 
 Shondell
+- Connected Login page with home and upload
+- Created signup page
+- Connected site to database locally
+- Hashed and encrypted passwords in local database
+- Learned more flask 
+- Researched nested table options for database
 
 Steve
 - Working on learning Flask and how to join the Login page to the previous pages I created.
