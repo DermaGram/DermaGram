@@ -20,3 +20,5 @@ Shondell
 
 Steve
 - Working on learning Flask and how to join the Login page to the previous pages I created.
+- Created a new app from the Login page.
+- Worked on learning more Flask and applying it to the functionality of this new app.
