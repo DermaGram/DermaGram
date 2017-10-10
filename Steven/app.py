@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import Flask, flash, redirect, render_template, request, session, abort
+from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
 from sqlalchemy.orm import sessionmaker
 from tabledef import *
@@ -12,7 +12,7 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return "Hello Boss!  <a href='/logout'>Logout</a>"
+        return "<center><h1><a href='/upload'>Please proceed to upload page</a></h1></center>"
  
 @app.route('/login', methods=['POST'])
 def do_admin_login():
@@ -34,7 +34,18 @@ def do_admin_login():
 def logout():
     session['logged_in'] = False
     return home()
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+   return render_template('signup.html')
+   firstname = request.form['firstname']
+   
+
+@app.route("/upload", methods=['GET','POST'])
+def upload():
+    return render_template('upload.html')
+
  
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
-    app.run(debug=True,host='0.0.0.0', port=5000)
+    app.run(debug=True,host='0.0.0.0', port=5001)
