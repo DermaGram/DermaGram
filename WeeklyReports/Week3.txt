@@ -9,6 +9,10 @@ Andrew
 - Research tensorflow 'servicing' API to hook model into our app.
 
 Jaspal
+- Retrained the inception model with a subset of our data using transfer learning.
+- Retrained the model with the entire dataset using transfer learning.
+- Researched the difference between fine-tuning and transfer learning, and the optimal approach for our given case(SVM). 
+- Attempted to use the tensorflow 'servicing' API using the tutorial. 
 
 Shondell
 - Connected Login page with home and upload
