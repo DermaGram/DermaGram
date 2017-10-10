@@ -1,0 +1,21 @@
+I made additions to the following files:
+
+app.py
+dummy.py
+tabledef.py
+tutorial.db
+login.html
+
+I added the following files:
+
+upload.html
+signup.html
+
+The program can be run in localhost:5001
+
+Navigate to the folder where you have app.py and run it with the command:
+python app.py
+
+Put the .html files in the template folder as before and the .css files go in the static folder as before.
+
+Let me know if you have any questions.
