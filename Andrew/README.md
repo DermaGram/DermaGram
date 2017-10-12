@@ -1,6 +1,9 @@
 # Andrew's directory
 # Testing: github
 
+Flask - on click instructions for calling a function in python and rendering data on screen:  
+https://www.tutorialspoint.com/flask/flask_sending_form_data_to_template.htm
+
 
 ImageNet
  ** access key:  
