@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+<html>
+    <title>Sign Up</title>
+    <head>
+        <center><h1>Sign Up</h1></center>
+    </head>
+    <body>
+        <form action='/signup' method='POST' align="center">
+            {{ form.csrf_token }}
+            First name:<br>
+            {{ form.firstname }}<br>
+            Last name:<br>
+            {{ form.lastname }}<br>
+            User name:<br>
+            {{ form.username }}<br>
+            Email Address:<br>
+            {{ form.address }}<br>
+            Password:<br>
+            {{ form.password }}<br>
+            Re-enter Password:<br>
+            {{ form.password2 }}<br><br>
+            <input type="submit" value="Signup">
+        </form>
+    </body>
+<html>
