@@ -2,3 +2,9 @@ Shondell
 -Connect login to database
 -Create user information template 
 -Fixed sign up issues
+
+Andrew
+-Integrate ImgurPython into app
+-Add logging_utils && imgur_utils
+-Begin to add unit tests for utils 
+-Create list_image_history.html
