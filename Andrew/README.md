@@ -18,7 +18,8 @@ secret 69452a83154e52b3
 
 install mysqclient  
 https://github.com/PyMySQL/mysqlclient-python  
-
+LINUX: install thsi first: sudo apt-get install libmysqlclient-dev  
+WINDOWS: install this first: Microsoft Visual C++ 9.0 is required (Unable to find vcvarsall.bat). Get it from http://aka.ms/vcpython27  
 
 imgur  
 client_id: 74ab756d286b81b  
