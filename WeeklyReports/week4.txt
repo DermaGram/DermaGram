@@ -1,0 +1,4 @@
+Shondell
+-Connect login to database
+-Create user information template 
+-Fixed sign up issues
