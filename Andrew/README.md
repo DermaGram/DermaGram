@@ -16,7 +16,8 @@ flickr:
 key 26a4736fab3407a6004b5138c1af2d6b  
 secret 69452a83154e52b3
 
-
+install mysqclient  
+https://github.com/PyMySQL/mysqlclient-python  
 
 
 imgur  
