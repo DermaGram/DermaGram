@@ -8,3 +8,8 @@ Andrew
 -Add logging_utils && imgur_utils
 -Begin to add unit tests for utils 
 -Create list_image_history.html
+
+Jaspal
+- Tested 132 images and computed Recall, Precision, & F1 score
+- Succesfully served an example model using tensorflow serving (via Docker)
+- Attempted to load and serve our trained model using serving (Not complete)
