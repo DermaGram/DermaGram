@@ -13,3 +13,9 @@ Jaspal
 - Tested 132 images and computed Recall, Precision, & F1 score
 - Succesfully served an example model using tensorflow serving (via Docker)
 - Attempted to load and serve our trained model using serving (Not complete)
+
+Steve
+- Made improvements to the front end as follows:
+- Improved the appearance of the upload.html Template and added an image
+- Added a WTForm to the signin.html Template
+- Made corresponding adjustments to the app.py file
