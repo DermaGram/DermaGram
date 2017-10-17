@@ -1,0 +1,10 @@
+In order to create your database, run mysql
+at the mysql command line run: 
+msql> source /path/to/dbScript.sql
+
+Then edit the db.py file to match your username and password on your localhost. 
+If you want to create a separate user for the db, run within mysql: 
+mysql> CREATE USER 'new_user'@'localhost' IDENTIFIED BY 'new_password';
+
+then do: 
+mysql> GRANT ALL ON my_db.* TO 'new_user'@'localhost';
