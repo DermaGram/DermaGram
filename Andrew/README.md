@@ -20,6 +20,8 @@ install mysqclient
 https://github.com/PyMySQL/mysqlclient-python  
 LINUX: install thsi first: sudo apt-get install libmysqlclient-dev  
 WINDOWS: install this first: Microsoft Visual C++ 9.0 is required (Unable to find vcvarsall.bat). Get it from http://aka.ms/vcpython27  
+&& 32-bit installation (because for whatever reason you have a 32-bit python version setup....)  
+
 
 imgur  
 client_id: 74ab756d286b81b  
