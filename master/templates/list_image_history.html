@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>"USERNAME's image history"</title>
+</head>
+<body>
+    <ul>
+        {% for image in image_history %}
+            <li> {{ image['datetime'], image['title'], image['description'] }} </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
