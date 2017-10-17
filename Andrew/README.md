@@ -23,6 +23,10 @@ WINDOWS: install this first: Microsoft Visual C++ 9.0 is required (Unable to fin
 && 32-bit installation (because for whatever reason you have a 32-bit python version setup....)  
 
 
+^^ Folwo ode2k directions https://stackoverflow.com/questions/35930924/how-to-install-mysqldb-in-pycharm-windows-python2-7?rq=1  
+Download file here: http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python  
+Run pip install <filename> in windows cmd window (no need to run pip install from pycharm)  
+
 imgur  
 client_id: 74ab756d286b81b  
 client_secret: 06e8cbd50c3388b95681efe0bf17e8578f72c8dd  
