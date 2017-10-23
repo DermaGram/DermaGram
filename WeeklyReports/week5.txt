@@ -1,0 +1,10 @@
+Shondell 
+
+Andrew
+- Install MySQL 
+- Create README for Windows Installation and troubleshooting tips
+- Create display_image.html
+
+Steven
+
+Jaspal
