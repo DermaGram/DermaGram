@@ -8,3 +8,5 @@ Andrew
 Steven
 
 Jaspal
+- Constructed the dataset to train Resnet
+- Attempted to train Resnet (still training)
