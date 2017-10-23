@@ -1,0 +1,50 @@
+Tensorflow Serving:
+ 1) Install Tensorflow Serving (Linux): https://www.tensorflow.org/serving/setup
+ 2) Example of serving a Tensorflow Model (using Mnist data): https://www.tensorflow.org/serving/serving_basic
+ 3) Serving Inception-v3 using docker: https://www.tensorflow.org/serving/serving_inception
+ 4) Explanation of using Tensorflow Serving: https://www.youtube.com/watch?v=T_afaArR0E8
+    https://github.com/llSourcell/How-to-Deploy-a-Tensorflow-Model-in-Production/blob/master/demo.ipynb
+    --this is slightly outdated so use (3) instead or when exporting the model replace the next instruction
+          bazel-bin/tensorflow_serving/example/inception_export --checkpoint_dir=inception-v3 --export_dir=inception-export
+      with this instruction:
+          bazel-bin/tensorflow_serving/example/inception_saved_model --checkpoint_dir=inception-v3 --output_dir=/tmp/inception-export
+  
+other useful links:
+  https://github.com/tensorflow/tensorflow/issues/5036
+  https://stackoverflow.com/questions/37237940/how-to-serve-the-tensorflow-graph-file-output-graph-pb-via-tensorflow-serving
+  https://github.com/eldor4do/Tensorflow-Examples/blob/master/retraining-example.py
+  https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/saved_model/README.md
+
+Resnet model in Tensorflow: 
+  https://github.com/tensorflow/models/tree/master/official/resnet
+
+To build the dataset for resnet follow the "How to Construct a New Dataset for Retraining"
+  https://github.com/tensorflow/models/tree/master/research/inception#getting-started
+  -- when giving the file path, make sure to give the full path otherwise errors will occur. 
+
+When training the Resnet Model make the following changes to imagenet_main.py:
+  1) Change the number of images to the number of images in our dataset (lines 81-84)
+      _NUM_IMAGES = {
+        'train': 1900,
+        'validation': 100,
+      }
+     
+  2) In the filenames function change 
+          os.path.join(FLAGS.data_dir, 'train-%05d-of-01024' % i)
+          for i in xrange(0, 1024)]
+     to 
+          os.path.join(FLAGS.data_dir, 'train-%05d-of-00123' % i)
+          for i in xrange(0, 123)]
+     and change         
+          os.path.join(FLAGS.data_dir, 'validation-%05d-of-00128' % i)
+          for i in xrange(0, 128)]
+     to 
+          os.path.join(FLAGS.data_dir, 'validation-%05d-of-00024' % i)
+          for i in xrange(0, 27)]
+     These numbers correspond with the train_shards and the validation_shards values give during the construction of the data.
+     
+  3) I also lowered the --train_steps default argument to 6400 instead of 6400000 and --steps_per_eval default argument to 40 instead of 40000 for speed.
+  
+  
+  
+ 
