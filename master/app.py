@@ -38,7 +38,7 @@ def do_admin_login():
     POST_USERNAME = str(request.form['username'])
     POST_PASSWORD = str(request.form['password'])
     if POST_USERNAME == "":
-        return login()
+        return home()
 
     c, conn = connection()
     name = c.execute("SELECT username FROM DG_User WHERE username = (%s)", [thwart(POST_USERNAME)])
@@ -50,7 +50,7 @@ def do_admin_login():
         session['username'] = request.form['username']
     else:
         flash('wrong password!')
-    return login()
+    return home()
 
 @app.route("/logout")
 def logout():
@@ -84,7 +84,7 @@ def register():
                 session['logged_in'] = True
                 session['username'] = username_p
 
-                return redirect(url_for('home'))
+                return home()
 
         return render_template("register.html", form=form)
 
