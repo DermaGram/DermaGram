@@ -1,6 +1,5 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
-from db.tabledef import *
 from db.registrationClass import *
 from db.db import connection
 
