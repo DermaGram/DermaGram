@@ -3,7 +3,6 @@ import os
 from db.tabledef import *
 from db.registrationClass import *
 from db.db import connection
-engine = create_engine('sqlite:///tutorial.db', echo=True)
 
 from utils.imgur_utils import ImgurUtils
 
