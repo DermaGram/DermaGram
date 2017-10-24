@@ -1,6 +1,5 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
 import os
-from db.tabledef import *
 from db.registrationClass import *
 from db.db import connection
 engine = create_engine('sqlite:///tutorial.db', echo=True)
@@ -8,7 +7,6 @@ engine = create_engine('sqlite:///tutorial.db', echo=True)
 from utils.imgur_utils import ImgurUtils
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'DontTellAnyone'
 
 #TODO: remove this default values when db is available
 album_id = 'cHPkw' #Album Name: ImgurPythonTest
