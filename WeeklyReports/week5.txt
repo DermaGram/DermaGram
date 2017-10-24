@@ -6,6 +6,9 @@ Andrew
 - Create display_image.html
 
 Steven
+- Connected App to Database
+- Reserched HTML5 and began to apply it
+- Improved login.html
 
 Jaspal
 - Constructed the dataset to train Resnet
