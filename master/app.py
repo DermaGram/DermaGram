@@ -2,6 +2,8 @@ from flask import Flask, flash, redirect, render_template, request, session, abo
 import os
 from db.registrationClass import *
 from db.db import connection
+from utils.dologin import do_login
+from utils.doregister import *
 
 from utils.imgur_utils import ImgurUtils
 
@@ -35,22 +37,8 @@ def display_profile():
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    POST_USERNAME = str(request.form['username'])
-    POST_PASSWORD = str(request.form['password'])
-    if POST_USERNAME == "":
-        return home()
-
-    c, conn = connection()
-    name = c.execute("SELECT username FROM DG_User WHERE username = (%s)", [thwart(POST_USERNAME)])
-    pw = c.execute("SELECT password FROM DG_User WHERE username = (%s)", [thwart(POST_USERNAME)])
-    pw = c.fetchone()[0]
-
-    if sha256_crypt.verify(request.form['password'], pw):
-        session['logged_in'] = True
-        session['username'] = request.form['username']
-    else:
-        flash('wrong password!')
-    return home()
+    do_login()
+    return login()
 
 @app.route("/logout")
 def logout():
@@ -59,37 +47,15 @@ def logout():
 
 @app.route('/register', methods=["GET","POST"])
 def register():
-    try:
-        form = RegistrationForm(request.form)
-        session['logged_in'] = False
-        if request.method == "POST" and form.validate():
-            username_p  = str(form.username.data)
-            email = str(form.email.data)
-            password = sha256_crypt.encrypt((str(form.password.data)))
-            c, conn = connection()
-            x = c.execute("SELECT * FROM DG_User WHERE username = (%s)", [thwart(username_p)])
-            if int(x) > 0:
-                flash("That username is already taken, please choose another")
-                return render_template('register.html', form=form)
-
-            else:
-                c.execute("INSERT INTO DG_User (username, password, email) VALUES (%s, %s, %s)", (username_p, password, email))
-
-                conn.commit()
-                flash("Thanks for registering!")
-                c.close()
-                conn.close()
-                gc.collect()
-
-                session['logged_in'] = True
-                session['username'] = username_p
-
-                return home()
-
-        return render_template("register.html", form=form)
-
-    except Exception as e:
-        return(str(e))
+    form = RegistrationForm(request.form)
+    # use form from register.html and pull data from that form
+    if request.method == "POST" and form.validate():
+        success = do_register(form) # successful registration? 
+        if(success == False):
+            return register() # reload sign up page
+        else: 
+            return login() # log them in
+    return render_template("register.html", form=form)
 
 
 '''
