@@ -1,6 +1,10 @@
 Shondell 
 
 Andrew
+- Built homepage w/ login button click
+- Integrated shondell's login/registration work w/ the homepage
+- Populated session data to load user profile page.
+- Should have changes to submit for code review mid-week
 
 Steven
 - Researched the DermaGram App upload function and created a directory and Class to implement it
