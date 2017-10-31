@@ -1,4 +1,8 @@
 Shondell 
+  -Researched “drag and drop” UI to create html pages
+  -Fixed errors with login and register functions
+  -Gave registration page similar layout to login
+  -Set up database on server
 
 Andrew
 - Built homepage w/ login button click
