@@ -1,1 +1,10 @@
+Shondell 
 
+Andrew
+
+Steven
+
+Jaspal
+- Trained Resnet with various learning rates(0.0125, 0.01, 0.00375, 0.067, 0.05, 0.001) and batches (2, 13, 12, 7)
+    - all failed due to loss function being too high or blowing upto infinity
+- Trained Alexnet with 10 epochs and 25 epochs
