@@ -6,6 +6,13 @@ from utils.dologin import Login
 from utils.doregister import SignUp
 from utils.imgur_utils import ImgurUtils
 
+from upload.upload_function import Upload
+from flask_uploads import UploadSet, IMAGES, configure_uploads
+photos = UploadSet('photos', IMAGES)
+
+app.config['UPLOADED_PHOTOS_DEST'] = 'static/img'
+configure_uploads(app, photos)
+
 app = Flask(__name__)
 #TODO: is this secret key needed?
 app.config['SECRET_KEY'] = 'DontTellAnyone'
@@ -76,6 +83,12 @@ def display_image():
         'title': "Surfs Up!"
     }
     return render_template('display_image.html',image=image)
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    run = Upload()
+    run.upload_file()
+    return render_template('confirm.html')
 
 
 if __name__ == "__main__":
