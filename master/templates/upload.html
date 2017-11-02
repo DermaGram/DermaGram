@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This is the DermaGram upload page -->
-<link rel="stylesheet" href="/static/style.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <html>
     <title>DermaGram Upload</title>
     <head>
@@ -10,10 +10,10 @@
     <body>
         <div>
         <div>
-            <form action="/upload" method="GET" align="center">
-                <input type="file" name="pic" accept="image/*">
-                <input type="submit">
-            </form>
+            <center><form id='upload-form' method="POST" enctype=multipart/form-data action="{{ url_for('upload') }}">
+                <input type="file" name="photo" accept="image/*" multiple>
+                <input type="submit" value="Upload">
+            </form><center>
         </div>
         <div>
             <center><a href='/logout'>Logout</a></center>
