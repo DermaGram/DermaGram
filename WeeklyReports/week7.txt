@@ -1,0 +1,13 @@
+Shondell
+
+Steven
+
+Jaspal
+
+Andrew
+- Create classes 'Login' for dologin.py and 'SignUp' for doregister.py
+- Create 'SessionUtils' to update user's session info while logged into our application.
+- Create home.html
+- Create profile.html w/ modular image_carousel.html, image_table.html, and nav_bar.html
+- Delete old profile related templates/functionality
+- Add generic nav_bar.html to the top of every page.
