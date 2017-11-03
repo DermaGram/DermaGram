@@ -10,12 +10,12 @@ from upload.upload_function import Upload
 from flask_uploads import UploadSet, IMAGES, configure_uploads
 photos = UploadSet('photos', IMAGES)
 
-app.config['UPLOADED_PHOTOS_DEST'] = 'static/img'
-configure_uploads(app, photos)
 
 app = Flask(__name__)
 #TODO: is this secret key needed?
 app.config['SECRET_KEY'] = 'DontTellAnyone'
+app.config['UPLOADED_PHOTOS_DEST'] = 'static/img'
+configure_uploads(app, photos)
 
 #TODO: we shouldn't initialize w/ album name/id since this will change with every user session
 imgur = ImgurUtils('ImgurPythonTest','cHPkw')
