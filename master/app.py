@@ -54,6 +54,7 @@ def register():
             return login() # log them in
     return render_template("register.html", form=form)
 
+#TODO add profile link so that after you login you can return without clicking on login (maybe use a person icon instead of 'login')
 @app.route('/profile')
 def display_profile():
     #get latest image from album, if there is one
@@ -61,28 +62,10 @@ def display_profile():
         'id': "3sacjQ6",
         'title': "Surfs Up!"
     }
-    image_history = imgur.get_image_history()
-    return render_template("profile.html", image=image, image_history=image_history)
+    image_table = imgur.get_image_history()
+    image_carousel = ['https://imgur.com/Zyv8Daj.jpg','https://imgur.com/1cXDeXR.jpg','https://imgur.com/zrxq7h9.jpg','https://imgur.com/WfbtvAb.jpg']
+    return render_template("profile.html", image=image, image_carousel=image_carousel, image_table=image_table)
 
-'''
-The following functions should be used to test the individual components
-that make up the main Profile page.
-Note: We should do this for all of our components
-'''
-# This should be rendered within the user's main profile page
-@app.route('/list_image_history')
-def list_image_history():
-    image_history = imgur.get_image_history()
-    return render_template('list_image_history.html',image_history=image_history)
-
-# This should be rendered within the user's main profile page
-@app.route('/display_image')
-def display_image():
-    image = {
-        'id': "3sacjQ6",
-        'title': "Surfs Up!"
-    }
-    return render_template('display_image.html',image=image)
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
@@ -93,4 +76,4 @@ def upload():
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
-    app.run(debug=True,host='0.0.0.0', port=5000)
+    app.run(debug=True,host='0.0.0.0', port=5002)
