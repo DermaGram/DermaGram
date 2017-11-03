@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="/static/style.css" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 {% block body %}
 {% if session['logged_in'] %}
 <p>You're logged in already!</p>
 {% else %}
  
- 
+ {% include "nav_bar.html" with context %}
 <form action="/login" method="POST">
 	<div class="login">
 		<div class="login-screen">

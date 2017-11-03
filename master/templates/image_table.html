@@ -1,0 +1,30 @@
+<table class="table">
+
+    <!-- HEADER -->
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Image Name</th>
+            <th>Upload Date</th>
+            <th>Body Location</th>
+            <th>Classification</th>
+        </tr>
+    </thead>
+    <!-- END HEADER -->
+
+    <!-- ROWS -->
+    <tbody>
+        <!-- NOTE: you can lable each <tr class="" > like active, success, warning, danger, etc. to highlight it -->
+        {% for image in image_table %}
+            <tr>
+                <td> {{ loop.index  }}    </td>
+                <td> {{ image.title }}    </td>
+                <td> {{ image.datetime }} </td>
+                <td>  UPPER LEFT ARM      </td>
+                <td>  MALIGNANT || BENIGN </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    <!-- END ROWS -->
+
+</table>
