@@ -1,6 +1,6 @@
 <table class="table">
 
-    <!--- HEADER --->
+    <!-- HEADER -->
     <thead>
         <tr>
             <th>#</th>
@@ -10,11 +10,11 @@
             <th>Classification</th>
         </tr>
     </thead>
-    <!--- END HEADER --->
+    <!-- END HEADER -->
 
-    <!--- ROWS --->
+    <!-- ROWS -->
     <tbody>
-        <!---NOTE: you can lable each <tr class="" > like active, success, warning, danger, etc. to highlight it --->
+        <!-- NOTE: you can lable each <tr class="" > like active, success, warning, danger, etc. to highlight it -->
         {% for image in image_table %}
             <tr>
                 <td> {{ loop.index  }}    </td>
@@ -25,6 +25,6 @@
             </tr>
         {% endfor %}
     </tbody>
-    <!--- END ROWS --->
+    <!-- END ROWS -->
 
 </table>
