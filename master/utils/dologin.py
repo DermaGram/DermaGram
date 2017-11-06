@@ -1,7 +1,9 @@
-from flask import request
+from flask import request, session
 from MySQLdb import escape_string as thwart
 from passlib.hash import sha256_crypt
 from db.db import connection
+
+from utils.db_utils import DbUtils
 from utils.session_utils import SessionUtils
 from utils.logging_utils import LoggingUtils
 import logging
@@ -29,7 +31,9 @@ class Login:
 
         # update user session info
         #TODO: replace album_name && album_id with whatever we get from db
-        SessionUtils.update_session_info(success, username, 'ImgurPythonTest', 'cHPkw')
+        album_id = DbUtils.get_album_id(username)
+        #NOTE album_name is the same as the username
+        SessionUtils.update_session_info(success, username, username, album_id)
         return success
 
     @staticmethod

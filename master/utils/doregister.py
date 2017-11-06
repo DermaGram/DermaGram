@@ -2,6 +2,7 @@ from flask import request
 from db.registrationClass import *
 from db.db import *
 
+from utils.imgur_utils import ImgurUtils
 from utils.session_utils import SessionUtils
 from utils.logging_utils import LoggingUtils
 import logging
@@ -24,11 +25,14 @@ class SignUp:
             # fetch and validate username
             success = cls._is_username_valid(c, user_info['username'])
             if success:
+                #TODO: this should be cleaned up
+                imgur = ImgurUtils()
+                album_id = imgur.create_new_album(user_info['username'])
+                user_info['album_id'] = album_id
                 cls._commit_user_info_to_db(c, conn, user_info)
-                # TODO: use ImgurUtils to create new album for this user
-                # TODO: replace album_name && album_id with whatever we get from db
+                #TODO there is no album_id yet so get rid of 'blah' from initialziation of ImgurUtils
+                SessionUtils.update_session_info(success, user_info['username'], user_info['username'], user_info['album_id'])
 
-            SessionUtils.update_session_info(success, user_info['username'], 'ImgurPythonTest', 'cHPkw')
         return success
 
     @staticmethod
@@ -37,6 +41,7 @@ class SignUp:
         user_info["username"] = str(form.username.data)
         user_info["password"] = sha256_crypt.encrypt((str(form.password.data)))
         user_info["email"] = str(form.email.data)
+        user_info['album_id'] = ""
         return user_info
 
     @staticmethod
@@ -50,8 +55,8 @@ class SignUp:
 
     @staticmethod
     def _commit_user_info_to_db(cursor, connection, user_info):
-        cursor.execute("INSERT INTO DG_User (username, password, email) VALUES (%s, %s, %s)",
-                        (user_info['username'], user_info['password'], user_info['email']) )
+        cursor.execute("INSERT INTO DG_User (username, password, email, albumLink) VALUES (%s, %s, %s, %s)",
+                        (user_info['username'], user_info['password'], user_info['email'], user_info['album_id']) )
         connection.commit()
         cursor.close()
         connection.close()
