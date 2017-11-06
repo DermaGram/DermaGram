@@ -1,26 +1,46 @@
-<!DOCTYPE html>
-<!-- This is the DermaGram upload page -->
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-<html>
-    <title>DermaGram Upload</title>
-    <head>
-        <center><h1>DermaGram</h1></center><br>
-        <center><h2>Upload Your Image</h2></center>
-    </head>
-    <body>
-        <div>
-        <div>
-            <center><form id='upload-form' method="POST" enctype=multipart/form-data action="{{ url_for('upload') }}">
-                <input type="file" name="photo" accept="image/*" multiple>
-                <input type="submit" value="Upload">
-            </form><center>
+<form class="form-horizontal" role="form" method="POST" action="/profile" enctype=multipart/form-data>
+    <!-- Upload -->
+    <div class="form-group">
+        <input type="file" id="chooseFile" name="photo" accept="image/*" multiple  >
+    </div>
+    <!-- Notes -->
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">
+            Name
+        </label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" />
         </div>
-        <div>
-            <center><a href='/logout'>Logout</a></center>
+    </div>
+    <!-- Location -->
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">
+            Location
+        </label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" />
         </div>
-        <div>
-          <center><img src="https://cdn.asme.org/getmedia/9904b4d3-1acc-4db5-8f16-be8ed6695c4e/Top-5-Medical-Technology-Innovations_hero.jpg.aspx"
- /></center>
+    </div>
+    <!-- Date -->
+    <div class="form-group">
+        <label for="inputDate" class="col-sm-2 control-label">
+            Date
+        </label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="inputDate" />
         </div>
-    </body>
-<html>
+    </div>
+    <!-- Analyze -->
+    <div class="form-group">
+        <center>
+            <input type="submit" id="uploadButton" value="Analyze" >
+        </center>
+    </div>
+    <!-- PROGRESS BAR -->
+    <div class="form-group">
+        <div class="progress-bar progress-success">
+        </div>
+    </div>
+</form>
+
+

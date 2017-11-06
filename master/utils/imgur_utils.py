@@ -12,15 +12,11 @@ class ImgurUtils:
     _ACCESS_TOKEN  = "7a58917273a8734cbbe6bc498d78e390b3c2e56e"
     _REFRESH_TOKEN = "463a35741a82af231b5d150deb7be5e69c48c386"
 
-    def __init__(self,uniqueUserId, albumId):
+    def __init__(self):
         self._client = ImgurClient(ImgurUtils._CLIENT_ID,
                                    ImgurUtils._CLIENT_SECRET,
                                    ImgurUtils._ACCESS_TOKEN,
                                    ImgurUtils._REFRESH_TOKEN)
-        self._user_info = {
-            'uuid': uniqueUserId,
-            'album_id': albumId
-        }
 
     '''
     Takes a float value and converts to a formatted datetime string
@@ -44,11 +40,11 @@ class ImgurUtils:
 
     @return: a unique album.id if match exists; otherwise, None
     '''
-    def _get_album_id_by_title(self):
+    def _get_album_id_by_title(self, username):
         album_id = None
         albums = self._client.get_account_albums(ImgurUtils._ACCOUNT_NAME)
         for album in albums:
-            if ( self._user_info['uuid'] == album.title ):
+            if ( username == album.title ):
                 album_id = album.id
                 break
         return album_id
@@ -72,10 +68,10 @@ class ImgurUtils:
 
     @return: a list of objects containing info. about each image.
     '''
-    def get_image_history(self):
+    def get_image_history(self, album_id):
         logger = logging.getLogger(__name__)
         image_history = []
-        images = self._client.get_album_images(self._user_info['album_id'])
+        images = self._client.get_album_images( album_id )
 
         if images:
             for image in images:
@@ -90,7 +86,7 @@ class ImgurUtils:
                 image_history.append(image_info)
         else:
             logger.warning('No images returned for album_id: {0}.'
-                           '\nget_album_images() response: {1}'.format( self._user_info['album_id'], images ))
+                           '\nget_album_images() response: {1}'.format( album_id, images ))
         return image_history
 
     '''
@@ -99,9 +95,9 @@ class ImgurUtils:
 
     @return: boolean True if album exists; otherwise False
     '''
-    def _does_album_exist(self):
+    def _does_album_exist(self, username):
         album_titles = self._get_album_titles_as_set()
-        return True if self._user_info['uuid'] in album_titles else False
+        return True if username in album_titles else False
 
     '''
     Creates a new album where the album's title is the user's uuid.
@@ -109,27 +105,39 @@ class ImgurUtils:
 
     @return: a string variable corresponding to the album's unique id
     '''
-    def create_new_album(self):
+    def create_new_album(self, username):
         logger = logging.getLogger(__name__)
         new_album_id = None
 
-        if ( self._does_album_exist() ):
-            existing_album_id = self._get_album_id_by_title()
+        #TODO we need to do check if username already exists as album name
+        if ( False ):
+            existing_album_id = self._get_album_id_by_title(username)
             logger.error("The uuid {0} already has an album id: {1}".format(
-                self._user_info['uuid'], existing_album_id ) )
+                username, existing_album_id ) )
         else:
-            logger.info( "Creating a new album for {0}".format( self._user_info['uuid'] ) )
+            logger.info( "Creating a new album for {0}".format( username ) )
             album_info = {
-                "title": self._user_info['uuid'],
+                "title": username,
                 "privacy": "public"
             }
             self._client.create_album(album_info)
-            new_album_id = self._get_album_id_by_title()
+            new_album_id = self._get_album_id_by_title(username)
 
             if new_album_id:
                 logger.info("The new album id for user {0} is: {1}".format(
-                    self._user_info['uuid'], new_album_id ) )
+                    username, new_album_id ) )
             else:
                 logger.error("There was an error getting the album_id.")
 
         return new_album_id
+
+    #https://github.com/Imgur/imgurpython/blob/3a285f758bcb8a2ff6aa024b2944f464f50d87d0/examples/upload.py
+    def add_image_to_album(self, album_id, image_path):
+        #TODO make this pull correct album and other data from user session
+        config = {
+            'album': album_id,
+            'name': 'Ey!',
+            'title': "I'm walking 'ere!",
+            'description': 'wiseguy'
+        }
+        self._client.upload_from_path(image_path, config=config, anon=False)

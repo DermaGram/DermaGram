@@ -12,3 +12,4 @@ class SessionUtils:
         session['username'] = username
         session['album_name'] = album_name
         session['album_id'] = album_id
+        session['active_image'] = ""

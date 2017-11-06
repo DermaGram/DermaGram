@@ -1,13 +1,13 @@
-<div class="carousel slide" id="carousel" data-ride="carousel">
+<div class="carousel slide" id="carousel" data-ride="carousel" data-interval="false">
 
     <!-- Indicators -->
     <ol class="carousel-indicators">
         {% for i in range( image_carousel | length )  %}
             {% if i == 0 %}
-                <li class="active" data-slide-to="i" data-target="#carousel">
+                <li class="active" data-slide-to={{ i }} data-target="#carousel">
                 </li>
             {% else %}
-                <li data-slide-to="i" data-target="#carousel">
+                <li data-slide-to={{ i }} data-target="#carousel">
             {% endif %}
         {% endfor %}
      </ol>
@@ -16,12 +16,14 @@
     <div class="carousel-inner">
         {% for image in image_carousel %}
             {% if loop.first %}
-                <div class="item active"><img src={{ image }}>
-                    <div class="carousel-caption"></div>
+                <div class="item active" data-target={{ image }}>
+                    <img class="img-responsive center-block" src={{ image }} >
+                    <div class="carousel-caption">Image Title</div>
                 </div>
             {% else %}
-                <div class="item"><img src={{ image }}>
-                    <div class="carousel-caption"></div>
+                <div class="item" data-target={{ image }}>
+                    <img class="img-responsive center-block" src={{ image }} >
+                    <div class="carousel-caption">Image Title</div>
                 </div>
             {% endif %}
         {% endfor %}
@@ -38,3 +40,11 @@
     </a>
 
 </div>
+
+<script>
+ $('#carousel').bind('slid.bs.carousel', function (e) {
+    var event = e.relatedTarget;
+    alert( event.dataset.target );
+
+});
+</script>

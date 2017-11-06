@@ -4,21 +4,16 @@ from db.registrationClass import *
 
 from utils.dologin import Login
 from utils.doregister import SignUp
+from utils.doUpload import Upload
+from utils.db_utils import DbUtils
 from utils.imgur_utils import ImgurUtils
 
-from upload.upload_function import Upload
-from flask_uploads import UploadSet, IMAGES, configure_uploads
-photos = UploadSet('photos', IMAGES)
-
-
+# Initialize App w/ config
 app = Flask(__name__)
-#TODO: is this secret key needed?
-app.config['SECRET_KEY'] = 'DontTellAnyone'
-app.config['UPLOADED_PHOTOS_DEST'] = 'static/img'
-configure_uploads(app, photos)
+# TODO: move all config related stuff to separate app config class
+Upload = Upload()
+Upload.initialize_app_upload(app)
 
-#TODO: we shouldn't initialize w/ album name/id since this will change with every user session
-imgur = ImgurUtils('ImgurPythonTest','cHPkw')
 
 @app.route('/')
 @app.route('/home')
@@ -29,11 +24,13 @@ def home():
 def login():
     if request.method == 'GET':
         if session.get('logged_in'):
-            return display_profile()
+            #TODO need to update session info here if person goes directly to profile so we have album_id
+            return profile()
     elif request.method == 'POST':
         if Login.do_login():
-            # session information is laoded from dologin.py
-            return display_profile()
+            #TODO when profile() called and profile.html rendered, it still shows localhost:5000/login, why?
+            # session information is loaded from dologin.py
+            return profile()
 
     return render_template('login.html')
 
@@ -55,23 +52,25 @@ def register():
     return render_template("register.html", form=form)
 
 #TODO add profile link so that after you login you can return without clicking on login (maybe use a person icon instead of 'login')
-@app.route('/profile')
-def display_profile():
+@app.route('/profile', methods=['GET','POST'])
+def profile():
+    imgur = ImgurUtils()
+
+    if request.method == 'POST' and request.files:
+        image_name = Upload.upload_image(session['album_id'], request.files['photo'])
+        if not image_name:
+            print "ERROR failed to upload image: ", image_name
+
     #get latest image from album, if there is one
     image = {
         'id': "3sacjQ6",
         'title': "Surfs Up!"
     }
-    image_table = imgur.get_image_history()
+    # TODO: get album id from the db!
+    album_id = 'cHPkw'
+    image_table = imgur.get_image_history( album_id )
     image_carousel = ['https://imgur.com/Zyv8Daj.jpg','https://imgur.com/1cXDeXR.jpg','https://imgur.com/zrxq7h9.jpg','https://imgur.com/WfbtvAb.jpg']
     return render_template("profile.html", image=image, image_carousel=image_carousel, image_table=image_table)
-
-
-@app.route('/upload', methods=['GET', 'POST'])
-def upload():
-    run = Upload()
-    run.upload_file()
-    return render_template('confirm.html')
 
 
 if __name__ == "__main__":
