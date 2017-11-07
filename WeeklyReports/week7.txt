@@ -1,6 +1,8 @@
 Shondell
 
 Steven
+- Did additional work on the upload function
+- Researched CSS Stylesheets
 
 Jaspal
 - Trained Resnet with an appropriate learning rate (Success!)
