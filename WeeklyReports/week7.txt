@@ -3,6 +3,9 @@ Shondell
 Steven
 
 Jaspal
+- Trained Resnet with an appropriate learning rate (Success!)
+- Attempted to load the graph and variables to make a prediction
+- Attempted to export the trained model for tensorflow serving
 
 Andrew
 - Create classes 'Login' for dologin.py, 'SignUp' for doregister.py, 'Upload' for doUpload.py, 'DbUtils' for db_utils.py, and 'SessionUtils' for session_utils.py
