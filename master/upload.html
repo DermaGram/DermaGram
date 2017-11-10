@@ -1,0 +1,48 @@
+<form class="form-horizontal" role="form" method="POST" action="/profile" enctype=multipart/form-data>
+    <!-- Upload -->
+    <div class="form-group">
+        <input type="file" id="chooseFile" name="photo" accept="image/*" multiple  >
+    </div>
+    <!-- Notes -->
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">
+            Name
+        </label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" />
+        </div>
+    </div>
+    <!-- Location -->
+    <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">
+            Location
+        </label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" />
+        </div>
+    </div>
+    <!-- Date -->
+    <div class="form-group">
+        <label for="inputDate" class="col-sm-2 control-label">
+            Date
+        </label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="inputDate" />
+        </div>
+    </div>
+    <!-- Analyze -->
+    <div class="form-group">
+        <center>
+            <input type="submit" id="uploadButton" value="Analyze" >
+        </center>
+    </div>
+    <!-- PROGRESS BAR -->
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+         aria-valuemin="0" aria-valuemax="100" style="width:70%">
+         70%
+        </div>
+    </div> 
+</form>
+
+
