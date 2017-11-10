@@ -3,6 +3,8 @@ Shondell
 Steven
 - Did additional work on the upload function
 - Researched CSS Stylesheets
+- Created DermaGram Logo
+- Created Progress Bar
 
 Jaspal
 - Trained Resnet with an appropriate learning rate (Success!)
