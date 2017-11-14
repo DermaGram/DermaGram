@@ -1,0 +1,7 @@
+
+Andrew
+- Cleaned up profile page by connecting user's profile to imgur album
+- Made selection from drop down list of locations on body
+- Highlight line item in table when classification is malignant
+- Minor error handling for file upload
+- Handling of image metadata (i.e. location/classification) data
