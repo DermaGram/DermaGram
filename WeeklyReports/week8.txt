@@ -5,3 +5,8 @@ Andrew
 - Highlight line item in table when classification is malignant
 - Minor error handling for file upload
 - Handling of image metadata (i.e. location/classification) data
+
+Steve
+- Did further research into how application accesses the file path for uploads
+- Did work on the home page regarding my avatar and information displayed to users
+- Researching how to connect the progress bar with the analyze function
