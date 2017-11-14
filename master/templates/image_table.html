@@ -14,15 +14,25 @@
 
     <!-- ROWS -->
     <tbody>
-        <!-- NOTE: you can lable each <tr class="" > like active, success, warning, danger, etc. to highlight it -->
+        <!-- NOTE: you can label each <tr class="" > like active, success, warning, danger, etc. to highlight it -->
         {% for image in image_table %}
-            <tr>
-                <td> {{ loop.index  }}    </td>
-                <td> {{ image.title }}    </td>
-                <td> {{ image.datetime }} </td>
-                <td>  UPPER LEFT ARM      </td>
-                <td>  MALIGNANT || BENIGN </td>
-            </tr>
+            {% if image.classification == 0 %}
+                <tr>
+                    <td> {{ loop.index  }}          </td>
+                    <td> {{ image.title }}          </td>
+                    <td> {{ image.datetime }}       </td>
+                    <td> {{ image.location }}       </td>
+                    <td> "Benign"                   </td>
+                </tr>
+            {% else %}
+                <tr class="danger">
+                    <td> {{ loop.index  }}          </td>
+                    <td> {{ image.title }}          </td>
+                    <td> {{ image.datetime }}       </td>
+                    <td> {{ image.location }}       </td>
+                    <td> "Malignant"                </td>
+                </tr>
+            {% endif %}
         {% endfor %}
     </tbody>
     <!-- END ROWS -->

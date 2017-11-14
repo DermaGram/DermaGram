@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<!-- MOVE NOTE: STYLE CODE TO CSS FILE -->
+<div class="container-fluid" style="height: 400px;">
     <!-- NAV BAR -->
     <div class="row">
         {% include "nav_bar.html" with context %}
@@ -23,7 +24,8 @@
 		</div>
 		<!-- RIGHT COLUMN -->
 		<div class="col-md-6">
-			<img class="img-responsive center-block" src="https://imgur.com/3sacjQ6.jpg">
+			<!-- NOTE: MOVE STYLE CODE TO CSS FILE -->
+			<img class="img-responsive center-block" src={{ image_link }} style="width: auto; max-height: 100%;">
 		</div>
 	</div>
     <!-- END FIRST ROW -->

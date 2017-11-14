@@ -8,6 +8,9 @@ from utils.doUpload import Upload
 from utils.db_utils import DbUtils
 from utils.imgur_utils import ImgurUtils
 
+#delete random lib after we add in classification
+import random
+
 # Initialize App w/ config
 app = Flask(__name__)
 # TODO: move all config related stuff to separate app config class
@@ -54,23 +57,19 @@ def register():
 #TODO add profile link so that after you login you can return without clicking on login (maybe use a person icon instead of 'login')
 @app.route('/profile', methods=['GET','POST'])
 def profile():
+    image_link = ""
     imgur = ImgurUtils()
 
     if request.method == 'POST' and request.files:
-        image_name = Upload.upload_image(session['album_id'], request.files['photo'])
-        if not image_name:
-            print "ERROR failed to upload image: ", image_name
+        #RUN CLASSIFICATION HERE
+        myRand = random.random()
+        classification = 0 if (myRand <= 0.50) else 1
+        image_link = Upload.upload_image(request.files['photo'], request.form['inputLocation'], classification)
+        if not image_link:
+            print "ERROR failed to upload image: ", image_link
 
-    #get latest image from album, if there is one
-    image = {
-        'id': "3sacjQ6",
-        'title': "Surfs Up!"
-    }
-    # TODO: get album id from the db!
-    album_id = 'cHPkw'
-    image_table = imgur.get_image_history( album_id )
-    image_carousel = ['https://imgur.com/Zyv8Daj.jpg','https://imgur.com/1cXDeXR.jpg','https://imgur.com/zrxq7h9.jpg','https://imgur.com/WfbtvAb.jpg']
-    return render_template("profile.html", image=image, image_carousel=image_carousel, image_table=image_table)
+    images_data = imgur.get_images_from_album( session['album_id'] )
+    return render_template("profile.html", image_link=image_link, image_carousel=images_data['carousel'], image_table=images_data['table'])
 
 
 if __name__ == "__main__":
