@@ -10,3 +10,6 @@ Steve
 - Did further research into how application accesses the file path for uploads
 - Did work on the home page regarding my avatar and information displayed to users
 - Researching how to connect the progress bar with the analyze function
+
+Jaspal 
+- Created a script to preprocess the image, load the graph and the model, and make a prediction. (However, the format of the prediction is incorrect.)
