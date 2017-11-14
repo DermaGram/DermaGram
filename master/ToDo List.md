@@ -11,8 +11,8 @@ Website
    * Update descriptive info. for each team member (whatever you'd like to share online)
 
 - Login/Sign Up
-  * Merge these two templates (as per the teacher's recommendation)
-  * Ensure the logic for login() and register() that calls templates is well tested for edge cases
+  * ~~Merge these two templates (as per the teacher's recommendation)~~
+  * ~~Ensure the logic for login() and register() that calls templates is well tested for edge cases~~
 
 - Profile
   * ~~Image upload: need to write code such that when file is uploded, it appears in right-hand side~~
