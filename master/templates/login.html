@@ -6,12 +6,25 @@
 {% else %}
  
  {% include "nav_bar.html" with context %}
+
+<!Add flash>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<div class="row">
+	<div>
+		<h1 class="text-center">DermaGram</h1>
+	</div>
 <form action="/login" method="POST">
 	<div class="login">
 		<div class="login-screen">
-			<div>
-				<h1>DermaGram App</h1>
-			</div>
 			<div class="app-title">
 				<h1>Login</h1>
 			</div>
@@ -29,17 +42,10 @@
  
                 <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" >
 			    <br>
-			</form>
-
-            <form action="/register" method="GET">
-			    <div class="register">
-			        <h4>or</h4>
-			        
-			        <input type="submit" value="Sign up" class="btn btn-primary btn-large btn-block" >
-                </div>
-            </div>
-		</div>
-	</div>
+                       </div> <!loginform>
+               </div> <!login-screen>
+	</div> <!login>
+</div> <!row>
 </form>
  
 {% endif %}
