@@ -20,6 +20,16 @@
   </dd>
 {% endmacro %}
 
+<div class="row"> 
+    <div> 
+	<h1 class="text-center">DermaGram</h1>
+    </div>
+<div class="login"> <!Called login as it uses the same style from style.css>
+	<div class="login-screen">
+		<div class="app-title">
+			<h1>Register</h1>
+		</div>
+
 <! Retrieve user input >
 <form action="/register" method="post">
       <p>
@@ -28,8 +38,11 @@
 	{{render_field(form.password)}}
 	{{render_field(form.confirm)}}
       </p>
-      <p><input type=submit value=Register></p>
-  </form>
+      <input type=submit value=Register class="btn btn-primary btn-large btn-block">
+	</div> <!login-screen>
+</div> <!class login>
+</form>
+</div> <!row>
 
 {% endblock %}
 
