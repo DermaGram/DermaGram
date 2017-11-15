@@ -43,11 +43,13 @@ class Login:
 
         if not username:
             logger.error("Username is empty sting.")
+            flash("Enter a username")
             success = False
         else:
             name = cursor.execute("SELECT username FROM DG_User WHERE username = (%s)", [thwart(username)])
             if int(name) == 0:
                 logger.error("Username {0} doesn't exist".format(username))
+                flash("This username does not exist")
                 success = False
 
         return success
@@ -65,6 +67,7 @@ class Login:
             success = True
         else:
             logger.error("Password {0} is incorrect.".format(password))
+            flash("Incorrect password")
 
         return success
 
