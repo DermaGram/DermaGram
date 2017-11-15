@@ -1,0 +1,16 @@
+
+Login: 
+Email: dermagram12@gmail.com Pass: JASSderma12
+
+To access website directly: dermagram.pythonanywhere.com
+
+To access files on pythonanywhere, click 'Files' then: 
+  dermagram/DermaGram/master
+  full path: /home/dermagram/dermagram/DermaGram/master
+  
+To access database, click 'Consoles':
+  click on MySQL:dermagram$Dermagram console
+  >> Use dermagram$default; 
+  
+
+  
