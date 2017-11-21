@@ -6,6 +6,8 @@ Andrew
 - Researched tensorflow's servicing.
 
 Steven
+- Worked on using a jQuery ajax() Method to run a progress bar on the Profile page
+- Researched how to connect the Image Table with the Image Carousel on the Profile page
 
 Jaspal
 
