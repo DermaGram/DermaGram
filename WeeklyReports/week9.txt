@@ -1,2 +1,11 @@
 Shondell
 -Downloaded Tensorflow onto upgraded server 
+
+Andrew
+- Worked on adding name and classification output to Profile page
+- Researched tensorflow's servicing.
+
+Steven
+
+Jaspal
+
