@@ -8,4 +8,5 @@ Andrew
 Steven
 
 Jaspal
-
+- Cleaned up all the benign images for training and evaluation
+- Partially cleaned up the malignant images
