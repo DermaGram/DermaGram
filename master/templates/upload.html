@@ -1,39 +1,52 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="static/progress3.css">
+  <script type="text/javascript" src="/static/progress.js"></script>
+</head>
 <form class="form-horizontal" role="form" method="POST" action="/profile" enctype=multipart/form-data>
     <!-- Upload -->
     <div class="form-group">
-        <label for="photo" class="col-sm-2 control-label">
-            Upload Image
+        <input type="file" id="chooseFile" name="photo" accept="image/*" multiple  >
+    </div>
+    <!-- Notes -->
+    <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">
+            Name
         </label>
         <div class="col-sm-10">
-            <!-- REQUIRED INPUT FIELD -->
-            <input type="file" id="chooseFile" name="photo" accept="image/*" required >
+            <input type="email" class="form-control" id="inputEmail3" />
         </div>
     </div>
     <!-- Location -->
     <div class="form-group">
-        <label for="inputLocation" class="col-sm-2 control-label">
-            Select Body Location
+        <label for="inputPassword3" class="col-sm-2 control-label">
+            Location
         </label>
         <div class="col-sm-10">
-            <!-- REQUIRED INPUT FIELD -->
-            {% include "select_location.html" with context %}
+            <input type="password" class="form-control" id="inputPassword3" />
+        </div>
+    </div>
+    <!-- Date -->
+    <div class="form-group">
+        <label for="inputDate" class="col-sm-2 control-label">
+            Date
+        </label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="inputDate" />
         </div>
     </div>
     <!-- Analyze -->
     <div class="form-group">
         <center>
-            <input type="submit" id="uploadButton" value="Analyze" >
+            <input type="submit" id="uploadButton" onclick="move()" value="Analyze">
         </center>
     </div>
-
-    <!-- NOTE1: NEED AN OUTPUT SECTION HERE w/ CLASSIFICATION RESULT -->
-    <!-- NOTE2: THIS PROGRESS BAR SHOULD ONLY BE ACTIVATED WHEN ANALZYED BUTTON IS CLICKED -->
-
     <!-- PROGRESS BAR -->
     <div class="progress">
-        <div class="progress-bar progress-bar-striped active" role="progressbar"
-         aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-         40%
-        </div>
+        <div id="myProgress">
+        <div id="myBar"></div>
+    </div>
     </div>
 </form>
+</html>
