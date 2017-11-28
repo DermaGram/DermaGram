@@ -1,4 +1,4 @@
-from flask import request, session
+from flask import request, session, flash
 from MySQLdb import escape_string as thwart
 from passlib.hash import sha256_crypt
 from db.db import connection
