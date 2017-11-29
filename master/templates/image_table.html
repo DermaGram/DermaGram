@@ -18,7 +18,7 @@
         {% for image in image_table %}
             {% if image.classification == 0 %}
                 <tr>
-                    <td> {{ loop.index  }}          </td>
+                    <td id='image_table_row'> {{ loop.index  }}          </td>
                     <td> {{ image.title }}          </td>
                     <td> {{ image.datetime }}       </td>
                     <td> {{ image.location }}       </td>
