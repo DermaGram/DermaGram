@@ -1,3 +1,7 @@
 Steven
 - Connected a progress bar to the upload.html page using JavaScript and CSS
 - Continued working on connecting the Image Table to the Image Carousel
+
+Jaspal
+- Cleaned all the remaining malignant images
+- Retrained Resnet on the new images
