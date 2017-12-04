@@ -19,27 +19,21 @@ import itertools
 parser_2 = argparse.ArgumentParser()
 
 parser_2.add_argument(
-    '--image_test', type=str, default='',
+    '--image', type=str, default='',
     help='Image to be inferenced.')
 
 parser_2.add_argument(
     '--resnet_size', type=int, default=50, choices=[1],
     help='The size of the ResNet model to use.')
-# parser.add_argument(
-#     '--resnet_size', type=int, default=50, choices=[18, 34, 50, 101, 152, 200],
-#     help='The size of the ResNet model to use.')
 
 parser_2.add_argument(
-    '--model_dir', type=str, default='../inference',
+    '--model_dir', type=str, default='../model',
     help='The directory where the model will be stored.')
 
 Flags = parser_2.parse_args()
 
-
 from imagenet_main import resnet_model_fn
-# Scale the learning rate linearly with the batch size. When the batch size is
-# 256, the learning rate should be 0.1.
-# _INITIAL_LEARNING_RATE = 0.08 * FLAGS.batch_size / 256
+
 _INITIAL_LEARNING_RATE = 0.0001
 
 _NUM_CHANNELS = 3
@@ -49,10 +43,6 @@ _LABEL_CLASSES = 3
 _MOMENTUM = 0.7
 _WEIGHT_DECAY = 1e-4
 
-# _NUM_IMAGES = {
-#     'train': 1281167,
-#     'validation': 50000,
-# }
 _NUM_IMAGES = {
     'train': 1900,
     'validation': 100,
@@ -141,11 +131,8 @@ def input_fn_2(image):
     output_height=network.default_image_size,
     output_width=network.default_image_size,
     is_training=False)
-  print(image)
-  print(image.shape)
   image_2 = tf.expand_dims(image, 0)
   image_2=tf.tile(image_2, [7, 1, 1, 1])
-  print(image_2)
   image=image_2
   return image
 
@@ -158,43 +145,18 @@ def main(unused_argv):
   with graph.as_default():
     with tf.Session(graph=graph) as sess:
       dir(tf.contrib)
-      saver = tf.train.import_meta_graph('/Users/jaspalsingh/Desktop/dermagram/part2/models/research/inception/tmp/derm/res/inference/model.ckpt-1989.meta')
-      saver.restore(sess, tf.train.latest_checkpoint('./'))
+      saver = tf.train.import_meta_graph('../model/model.ckpt-1376.meta')
+      saver.restore(sess, 'model.ckpt-1376')
       coder = ImageCoder() #Create an instance of ImageCoder for _process_image
       image, im_height, im_width = _process_image(Flags.image_test, coder)
-      # logits = network(
-      #     inputs=image, is_training=False)
-      
-      # predictions = {
-      #     'classes': tf.argmax(logits, axis=1),
-      #     'probabilities': tf.nn.softmax(logits, name='softmax_tensor')
-      # }
-      # test_results= tf.estimator.EstimatorSpec(tf.estimator.ModeKeys.PREDICT, predictions=predictions)
-      # print(test_results)
-
 
       resnet_classifier = tf.estimator.Estimator(
         model_fn=imagenet_main.resnet_model_fn, model_dir=Flags.model_dir)
       test_results = next(resnet_classifier.predict(input_fn=lambda: input_fn_2(image)))
 
       print('prediction computed')
-      # print(next(test_results))
-      # j=1
-      # for i in test_results:
-      #   print(i)
-        # j+=1
-        # if j>2:
-        #   break
       print(test_results['probabilities'])
-      # list(test_results)
-      # tests = list(itertools.islice(test_results))      
-      # print(tests)
 
-
-    # # print("\nTest Accuracy: {}\n".format(str(test_results)))
-
-  # print("Everything good till now")
-  # print(image)
 
 if __name__ == '__main__':
   tf.app.run()
