@@ -6,3 +6,6 @@ Andrew
 -Deleted image carousel
 -Added some basic utils for handling the output of the model, but
  this will need to be updated a bit.
+
+Steven
+- Continued working on linking the table row to the image
