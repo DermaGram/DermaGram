@@ -5,10 +5,7 @@ from __future__ import print_function
 
 import argparse
 import os
-import sys
-import threading
 
-import numpy as np
 import tensorflow as tf
 import resnet_model
 import vgg_preprocessing
@@ -136,7 +133,7 @@ def input_fn_2(image):
   image=image_2
   return image
 
-def main(unused_argv):
+def get_probs(image):
 # Using the Winograd non-fused algorithms provides a small performance boost.
   os.environ['TF_ENABLE_WINOGRAD_NONFUSED'] = '1'
   dir(tf.contrib)
@@ -148,15 +145,10 @@ def main(unused_argv):
       saver = tf.train.import_meta_graph('../model/model.ckpt-1376.meta')
       saver.restore(sess, 'model.ckpt-1376')
       coder = ImageCoder() #Create an instance of ImageCoder for _process_image
-      image, im_height, im_width = _process_image(Flags.image_test, coder)
+      image, im_height, im_width = _process_image(image, coder)
 
       resnet_classifier = tf.estimator.Estimator(
         model_fn=imagenet_main.resnet_model_fn, model_dir=Flags.model_dir)
       test_results = next(resnet_classifier.predict(input_fn=lambda: input_fn_2(image)))
 
-      print('prediction computed')
-      print(test_results['probabilities'])
-
-
-if __name__ == '__main__':
-  tf.app.run()
+      return test_results['probabilities']
