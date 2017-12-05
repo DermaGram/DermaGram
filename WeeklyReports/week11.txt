@@ -9,3 +9,8 @@ Andrew
 
 Steven
 - Continued working on linking the table row to the image
+
+Jaspal
+- Retrained the model. (File with the weights got corrupted)
+- Uploaded the model on the server and ran a test.
+- Updated trial.py to handle a call from the website. 
