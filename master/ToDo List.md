@@ -18,9 +18,9 @@ Website
   * ~~Image upload: need to write code such that when file is uploded, it appears in right-hand side~~
   * ~~Image upload: the details written into the control boxes should be stored in imgur w/ the image.~~
   * Image analysis: Hook into our model to analyze the image and return a classification
-  * Image analysis: There should be a box that returns the classification result after analysis is complete.
+  * ~~Image analysis: There should be a box that returns the classification result after analysis is complete.~~
   * ~~Image analysis: update the image in imgur w/ this new classification so we can retrieve in image_table.html~~
-  * Progress bar: the progress bar should indicate the progress of the image classification while we wait for response
+  * ~~Progress bar: the progress bar should indicate the progress of the image classification while we wait for response~~
   * ~~Image table: the items that are labeled Malignant should be highlighted red~~
   * Image table: clicking on an image in the table should auto-slide the image_carousel to that image, and vice versa
   * Image sizing: use CSS to control how much space uploaded image takes - the image size should be adjusted to fit the template
