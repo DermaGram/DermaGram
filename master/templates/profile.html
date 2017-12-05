@@ -39,8 +39,9 @@
 			{% include "image_table.html" with context %}
 		</div>
 		<!-- RIGHT COLUMN -->
+		<!-- @STEVE - here is where you should load the image from the row clicked on by the user -->
 		<div class="col-md-6">
-            {% include "image_carousel.html" with context %}
+            <img class="img-responsive center-block" src={{ image_link }}  style="width: auto; max-height: 100%;">
 		</div>
 	</div>
     <!-- END SECOND ROW -->

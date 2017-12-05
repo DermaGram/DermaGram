@@ -25,20 +25,30 @@
             {% include "select_location.html" with context %}
         </div>
     </div>
-    <!-- Analyze -->
+    <!-- Analyze Button -->
     <div class="form-group">
-        <center>
+        <label for="analysisButton" class="col-sm-2 control-label">
+            Analyze Image
+        </label>
+        <div class="col-sm-10">
             <input type="submit" id="uploadButton" onclick="move()" value="Analyze">
-        </center>
+            <!-- PROGRESS BAR -->
+            <div class="progress">
+                <div id="myProgress">
+                    <div id="myBar"></div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- NOTE1: NEED AN OUTPUT SECTION HERE w/ CLASSIFICATION RESULT -->
-    <!-- NOTE2: THIS PROGRESS BAR SHOULD ONLY BE ACTIVATED WHEN ANALZYED BUTTON IS CLICKED -->
-
-    <!-- PROGRESS BAR -->
-    <div class="progress">
-        <div id="myProgress">
-        <div id="myBar"></div>
-    </div>
-    </div>
+    <!-- Analysis Results -->
+    {% if classification_data %}
+        <div class="form-group">
+            <label for="analysisResults" class="col-sm-2 control-label">
+                Analysis Results
+            </label>
+            <div class="col-sm-10">
+                {% include "analysis_results.html" with context %}
+            </div>
+        </div>
+    {% endif %}
 </form>

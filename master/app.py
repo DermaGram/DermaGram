@@ -6,6 +6,7 @@ from utils.dologin import Login
 from utils.doregister import SignUp
 from utils.doUpload import Upload
 from utils.db_utils import DbUtils
+from utils.tf_utils import TfUtils
 from utils.imgur_utils import ImgurUtils
 
 #delete random lib after we add in classification
@@ -59,19 +60,23 @@ def register():
 def profile():
     image_link = ""
     imgur = ImgurUtils()
+    classification_data = []
 
     if request.method == 'POST' and request.files:
-        #RUN CLASSIFICATION HERE
-        myRand = random.random()
-        classification = 0 if (myRand <= 0.50) else 1
+        classification_data = TfUtils.get_classifications()
+        classification = TfUtils.get_top_classification(classification_data)
         image_link = Upload.upload_image(request.files['photo'], request.form['inputLocation'], classification)
         if not image_link:
             print "ERROR failed to upload image: ", image_link
 
     images_data = imgur.get_images_from_album( session['album_id'] )
-    return render_template("profile.html", image_link=image_link, image_carousel=images_data['carousel'], image_table=images_data['table'])
+    return render_template("profile.html",
+                           image_link=image_link,
+                           image_carousel=images_data['carousel'],
+                           image_table=images_data['table'],
+                           classification_data=classification_data)
 
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
-    app.run(debug=True,host='0.0.0.0', port=5000)
+    app.run(debug=True,host='0.0.0.0', port=5002)

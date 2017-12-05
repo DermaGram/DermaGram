@@ -1,0 +1,22 @@
+<table class="table">
+    <!-- HEADER -->
+    <thead>
+        <tr>
+            <th>Classification</th>
+            <th>Probability</th>
+        </tr>
+    </thead>
+    <!-- END HEADER -->
+
+    <!-- ROWS -->
+    <tbody>
+        <!-- NOTE: you can label each <tr class="" > like active, success, warning, danger, etc. to highlight it -->
+        {% for classification in classification_data %}
+            <tr>
+                <td> {{ classification.label       }}          </td>
+                <td> {{ classification.probability }}          </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    <!-- END ROWS -->
+</table>
