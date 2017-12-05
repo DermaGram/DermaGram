@@ -1,2 +1,8 @@
 Shondell
 -Played around with color and html UI options
+
+Andrew
+-Added section to display the results of the image classifier model
+-Deleted image carousel
+-Added some basic utils for handling the output of the model, but
+ this will need to be updated a bit.
