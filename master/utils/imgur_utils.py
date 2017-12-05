@@ -88,7 +88,7 @@ class ImgurUtils:
                     'id': str(image.id),
                     'title': str(image.title),
                     'location': info['location'],
-                    'classification': float(info['classification']),
+                    'classification': info['classification'],
                     'datetime': self._get_local_time(float(image.datetime)),
                 }
                 images_data['table'].append(image_info)
