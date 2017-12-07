@@ -1,6 +1,4 @@
-import sys
-sys.path.append("../model")
-from model.trial import get_probs
+import trial
 
 class TfUtils(object):
 
