@@ -72,7 +72,6 @@ class ImgurUtils:
     def get_images_from_album(self, album_id):
         logger = logging.getLogger(__name__)
         images_data = {
-            "carousel": [],
             "table": []
         }
         images = self._client.get_album_images( album_id )
@@ -93,7 +92,6 @@ class ImgurUtils:
                 }
                 images_data['table'].append(image_info)
 
-                images_data['carousel'].append(image.link)
         else:
             logger.warning('No images returned for album_id: {0}.'
                            '\nget_album_images() response: {1}'.format( album_id, images ))

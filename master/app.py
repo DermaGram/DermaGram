@@ -8,6 +8,7 @@ from utils.doUpload import Upload
 from utils.db_utils import DbUtils
 from utils.tf_utils import TfUtils
 from utils.imgur_utils import ImgurUtils
+from utils.file_utils import FileUtils
 
 #delete random lib after we add in classification
 import random
@@ -15,9 +16,11 @@ import random
 # Initialize App w/ config
 app = Flask(__name__)
 # TODO: move all config related stuff to separate app config class
-Upload = Upload()
-Upload.initialize_app_upload(app)
-
+#Upload = Upload()
+#Upload.initialize_app_upload(app)
+fu = FileUtils()
+photo_set = fu.get_upload_set()
+fu.initialize_app_image_storage(app,photo_set)
 
 @app.route('/')
 @app.route('/home')
@@ -59,20 +62,23 @@ def register():
 @app.route('/profile', methods=['GET','POST'])
 def profile():
     image_link = ""
-    imgur = ImgurUtils()
     classification_data = []
 
     if request.method == 'POST' and request.files:
-        classification_data = TfUtils.get_classifications()
-        classification = TfUtils.get_top_classification(classification_data)
-        image_link = Upload.upload_image(request.files['photo'], request.form['inputLocation'], classification)
+        fu.refresh_temp_folder()
+        photo_set.save(request.files['photo'])
+        image_path = fu.get_image_file_path()
+        classification_data = TfUtils.get_classifications(image_path)
+        top_classification = TfUtils.get_top_classification(classification_data)
+        image_link = Upload.upload_image(request.files['photo'].filename, image_path, request.form['inputLocation'], top_classification)
+        fu.rm_files_temp_folder()
         if not image_link:
             print "ERROR failed to upload image: ", image_link
 
+    imgur = ImgurUtils()
     images_data = imgur.get_images_from_album( session['album_id'] )
     return render_template("profile.html",
                            image_link=image_link,
-                           image_carousel=images_data['carousel'],
                            image_table=images_data['table'],
                            classification_data=classification_data)
 

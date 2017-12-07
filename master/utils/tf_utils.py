@@ -1,13 +1,16 @@
-
+import sys
+sys.path.append("../model")
+from model.trial import get_probs
 
 class TfUtils(object):
 
     @staticmethod
-    def get_classifications():
+    def get_classifications(image_path):
+        probabilities = get_probs(image_path)
         return [
-                {"label":"Biopsy","probability":0.6},
-                {"label":"No Biopsy","probability":0.3},
-                {"label":"Unsure","probability":0.1}
+                {"label":"Biopsy","probability":probabilities[2]},
+                {"label":"No Biopsy","probability":probabilities[1]},
+                {"label":"Unsure","probability":probabilities[0]}
                 ]
 
     @staticmethod
