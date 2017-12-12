@@ -1,25 +1,31 @@
 <div class="col-md-12">
-	<nav class="navbar navbar-default" role="navigation">
+	<nav class="navbar navbar-default" role="navigation" style="background-color:rgba(50, 150,150, .8);">
 		<div class="navbar-header">
 
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 				 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-			</button><a class="navbar-brand" href="/home"><font color='blue' face='Frosty' size='5'>Dermagram Diagnostics</font></a>
+			</button>
+			<a class="navbar-brand" href="/home"><font  style="color: rgba(250,255,255,1);" face='Frosty' size='5'>Dermagram Diagnostics</font></a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
+				{% if session['logged_in'] %}
+				<li class="active"> 
+					<a href="/profile" style="color: rgba(250,250,250,1);">Profile</a>
+				</li>
+				<li>
+					<a href="/logout" style="color: rgba(250,250,250,1);">Logout</a>
+				</li>
+				{% else %}
 				<li class="active">
-					<a href="/login">Login</a>
+					<a href="/login" style="color: rgba(250,250,250,1);">Login</a>
 				</li>
 				<li>
-					<a href="/register">Sign Up</a>
+					<a href="/register" style="color: rgba(250,250,250,1);">Sign Up</a>
 				</li>
-				<li>
-					<a href="/logout">Logout</a>
-				</li>
+				{% endif %}
 			</ul>
 		</div>
-
 	</nav>
 </div>
