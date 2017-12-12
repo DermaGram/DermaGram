@@ -1,11 +1,24 @@
-<link rel="stylesheet" href="/static/style.css" type="text/css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-{% block body %}
+{% block body %} <! Do we need this?> 
 {% if session['logged_in'] %}
 <p>You're logged in already!</p>
 {% else %}
- 
+
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/style.css?1422585377" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body style="background-color: rgba(140,250,255,.4);
+background-image: url(static/first-aid-kit.png);">
+
+<div class="container-fluid" > 
+<div class="row">
  {% include "nav_bar.html" with context %}
+</div>
+
 
 <!Add flash>
 {% with messages = get_flashed_messages() %}
@@ -19,17 +32,15 @@
 {% endwith %}
 
 <div class="row">
-	<div>
-		<h1 class="text-center">DermaGram</h1>
-	</div>
+
 <form action="/login" method="POST">
 	<div class="login">
 		<div class="login-screen">
-			<div class="app-title">
+			<div class="app-title"  style="margin-top: 20px;"> 
 				<h1>Login</h1>
 			</div>
  
-			<div class="login-form">
+			<div class="login-form"  style="margin-top: 30px;">
 				<div class="control-group">
 				<input type="text" class="login-field" value="" placeholder="username" name="username">
 				<label class="login-field-icon fui-user" for="login-name"></label>
@@ -40,13 +51,15 @@
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
  
-                <input type="submit" value="Log in" class="btn btn-primary btn-large btn-block" >
+                <input type="submit" value="Log in" class="btn" >
 			    <br>
                        </div> <!loginform>
                </div> <!login-screen>
 	</div> <!login>
 </div> <!row>
+</div> <!container>
 </form>
+</body>
  
 {% endif %}
 {% endblock %}
