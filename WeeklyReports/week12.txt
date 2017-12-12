@@ -1,1 +1,2 @@
-
+Steven
+- Continued working on connecting the Image Table row data to the image displayed
