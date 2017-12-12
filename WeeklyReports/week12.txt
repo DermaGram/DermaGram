@@ -1,3 +1,6 @@
+Steven
+- Continued working on connecting the Image Table row data to the image displayed
+
 Andrew
 - Got the stand-alone model to work by installing git-lfs to download the binary checkpoint model files
 - Worked on trying to hook the app into the mode.
