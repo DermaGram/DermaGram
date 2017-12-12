@@ -6,14 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-<body>
+<body  style="background-color: rgba(140,250,255,.4);
+background-image: url(static/first-aid-kit.png);">
 
 <div class="container-fluid">
 	<div class="row">
 		{% include "nav_bar.html" with context %}
-		<div class="jumbotron">
-			<h2>
+		<div class="jumbotron" style="background-color: rgba(120,230,250,.3);>
+			<h2 style="margin-top:50px;">
+			<font face="Palatino" style="color: rgba(90, 90, 90, 1);">
 				Welcome to DermaGram!
+			</font>
 			</h2>
 			<p>
 				DermaGram was built to assist Dermatologists in identifying skin lesions. The application
@@ -22,7 +25,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row"  style="margin-top:20px;">
 		<div class="col-md-3">
 			<img alt="Bootstrap Image Preview" src="https://imgur.com/SNrig9G.jpg" class="img-circle" />
 			<dl>
@@ -53,8 +56,8 @@
 			</dl>
 		</div>
 		<div class="col-md-3">
-			<img alt="Bootstrap Image Preview" src="https://i.imgur.com/WfbtvAb.jpg" class="img-circle" />
-			<dl>
+			<img alt="Bootstrap Image Preview" src=""static/icon.jpg" class="img-circle" width="250" height="300" />
+			<dl style="margin-top: 25px;">
 				<dt>
 					Name:
 				</dt>
@@ -77,13 +80,13 @@
 					Interests
 				</dt>
 				<dd>
-					Image Recognition, Natural Language Processing, Machine Learning, Convolutional Neural Networks
+					Image Recognition, Natural Language Processing, Statistical Machine Learning, Convolutional Neural Networks
 				</dd>
 			</dl>
 		</div>
 		<div class="col-md-3">
 			<img alt="Bootstrap Image Preview" src="https://i.imgur.com/xFg7zYu.jpg?6" class="img-circle" />
-			<dl>
+			<dl style="margin-top: 25px;">
 				<dt>
 					Name:
 				</dt>
