@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<!-- MOVE NOTE: STYLE CODE TO CSS FILE -->
+<div class="container-fluid" style="height: 400px;">
+    <!-- NAV BAR -->
+    <div class="row">
+        {% include "nav_bar.html" with context %}
+    </div>
+
+    <!-- FIRST ROW -->
+	<div class="row">
+		<!-- LEFT COLUMN -->
+		<div class="col-md-6">
+			{% include "upload.html" with context %}
+		</div>
+		<!-- RIGHT COLUMN -->
+		<div class="col-md-6">
+			<!-- NOTE: MOVE STYLE CODE TO CSS FILE -->
+			<img class="img-responsive center-block" src={{ image_link }} style="width: auto; max-height: 100%;">
+		</div>
+	</div>
+    <!-- END FIRST ROW -->
+
+	<br>
+
+    <!-- SECOND ROW --->
+	<div class="row">
+		<!-- CENTER COLUMN -->
+		<div class="col-md-10 col-md-offset-1">
+			{% include "image_table.html" with context %}
+		</div>
+	</div>
+    <!-- END SECOND ROW -->
+</div>
+
+</body>
+</html>
