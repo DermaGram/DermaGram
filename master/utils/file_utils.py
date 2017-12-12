@@ -5,7 +5,7 @@ import os
 class FileUtils:
 
     def __init__(self):
-        self.destination_file_path = 'static/img'
+        self.destination_file_path = '/home/dermagram/static/img'
 
     def get_upload_set(self):
         return UploadSet('photos', IMAGES)

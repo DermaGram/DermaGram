@@ -24,7 +24,7 @@ parser_2.add_argument(
     help='The size of the ResNet model to use.')
 
 parser_2.add_argument(
-    '--model_dir', type=str, default='../model',
+    '--model_dir', type=str, default='/home/dermagram/dermagram/DermaGram/master/model/',
     help='The directory where the model will be stored.')
 
 Flags = parser_2.parse_args()
@@ -142,8 +142,8 @@ def get_probs(image):
   with graph.as_default():
     with tf.Session(graph=graph) as sess:
       dir(tf.contrib)
-      saver = tf.train.import_meta_graph('../model/model.ckpt-1376.meta')
-      saver.restore(sess, 'model.ckpt-1376')
+      saver = tf.train.import_meta_graph('/home/dermagram/dermagram/DermaGram/master/model/model.ckpt-1376.meta')
+      saver.restore(sess, '/home/dermagram/dermagram/DermaGram/master/model/model.ckpt-1376')
       coder = ImageCoder() #Create an instance of ImageCoder for _process_image
       image, im_height, im_width = _process_image(image, coder)
 
