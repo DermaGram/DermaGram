@@ -21,7 +21,16 @@ background-image: url(static/first-aid-kit.png);">
 			<p>
 				DermaGram was built to assist Dermatologists in identifying skin lesions. The application
 				enables you to create a profile, upload an image, and analzye the image using an
-				image-recognition classifier. NOTE: ADD MORE INFO
+				image-recognition classifier. 
+				
+				The image-recognition classifier was built on TensorFlow's neural network-based ResNet model
+				and trained through supervised learning. The training data set comes from the ISIC archive - 
+				an academia and industry partnership designed to facilitate the application of digital skin imaging 
+				to help reduce melanoma mortality. When run, the image-recognition classifier will return a set
+				of biopsy recommendations and their associated confidence levels expressed as probabilities.
+				
+				The source code for DermaGram may be found here: https://github.com/DermaGram/DermaGram
+				The source images for training may be found here: https://isic-archive.com/
 			</p>
 		</div>
 	</div>
