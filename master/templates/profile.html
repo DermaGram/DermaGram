@@ -26,7 +26,11 @@ background-image: url(static/first-aid-kit.png);">
 		<!-- RIGHT COLUMN -->
 		<div class="col-md-6">
 			<!-- NOTE: MOVE STYLE CODE TO CSS FILE -->
-			<img class="img-responsive center-block" src={{ image_link }} style="width: auto; max-height: 100%;">
+			{% if image_link == "" %}
+				<img class="img-responsive center-block" src="https://imgur.com/snTUMR5.jpg" style="width: auto; max-height: 100%;">
+			{% else %}
+				<img class="img-responsive center-block" src={{ image_link }} style="width: auto; max-height: 100%;">
+			{% endif %}
 		</div>
 	</div>
     <!-- END FIRST ROW -->
