@@ -6,26 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-<body>
+<body  style="background-color: rgba(140,250,255,.4);
+background-image: url(static/first-aid-kit.png);">
 
 <div class="container-fluid">
 	<div class="row">
 		{% include "nav_bar.html" with context %}
-		<div class="jumbotron">
-			<h2>
+		<div class="jumbotron" style="background-color: rgba(120,230,250,.3);>
+			<h2 style="margin-top:50px;">
+			<font face="Palatino" size="14" style="color: rgba(90, 90, 90, 1);">
 				Welcome to DermaGram!
+			</font>
 			</h2>
 			<p>
 				DermaGram was built to assist Dermatologists in identifying skin lesions. The application
 				enables you to create a profile, upload an image, and analzye the image using an
-				image-recognition classifier. NOTE: ADD MORE INFO
+				image-recognition classifier. 
+				
+				The image-recognition classifier was built on TensorFlow's neural network-based ResNet model
+				and trained through supervised learning. The training data set comes from the ISIC archive - 
+				an academia and industry partnership designed to facilitate the application of digital skin imaging 
+				to help reduce melanoma mortality. When run, the image-recognition classifier will return a set
+				of biopsy recommendations and their associated confidence levels expressed as probabilities.
+				
+				The source code for DermaGram may be found here: https://github.com/DermaGram/DermaGram
+				The source images for training may be found here: https://isic-archive.com/
 			</p>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row"  style="margin-top:20px;">
 		<div class="col-md-3">
-			<img alt="Bootstrap Image Preview" src="https://imgur.com/SNrig9G.jpg" class="img-circle" />
-			<dl>
+			<img alt="Bootstrap Image Preview" src="https://imgur.com/SNrig9G.jpg" class="img-circle" width="250" height="300"/>
+			<dl style="margin-top: 25px;">
 				<dt>
 					Name:
 				</dt>
@@ -53,8 +65,8 @@
 			</dl>
 		</div>
 		<div class="col-md-3">
-			<img alt="Bootstrap Image Preview" src="https://i.imgur.com/WfbtvAb.jpg" class="img-circle" />
-			<dl>
+			<img alt="Bootstrap Image Preview" src="static/icon.jpg" class="img-circle" width="250" height="300" />
+			<dl style="margin-top: 25px;">
 				<dt>
 					Name:
 				</dt>
@@ -77,13 +89,13 @@
 					Interests
 				</dt>
 				<dd>
-					Image Recognition, Natural Language Processing, Machine Learning, Convolutional Neural Networks
+					Image Recognition, Natural Language Processing, Statistical Machine Learning, Convolutional Neural Networks
 				</dd>
 			</dl>
 		</div>
 		<div class="col-md-3">
-			<img alt="Bootstrap Image Preview" src="https://i.imgur.com/xFg7zYu.jpg?6" class="img-circle" />
-			<dl>
+			<img alt="Bootstrap Image Preview" src="https://i.imgur.com/xFg7zYu.jpg?6" class="img-circle" width="250" height="300" />
+			<dl style="margin-top: 25px;">
 				<dt>
 					Name:
 				</dt>
@@ -111,8 +123,8 @@
 			</dl>
 		</div>
 		<div class="col-md-3">
-			<img alt="Bootstrap Image Preview" src="https://i.imgur.com/1cXDeXR.jpg" class="img-circle" />
-			<dl>
+			<img alt="Bootstrap Image Preview" src="/static/jas.jpg" class="img-circle" width="250" height="300" />
+			<dl style="margin-top: 25px;">
 				<dt>
 					Name:
 				</dt>

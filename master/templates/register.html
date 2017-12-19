@@ -1,8 +1,13 @@
 <!DOCTYPE html>
+<head>
+<title>Register</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/static/style.css" type="text/css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-{% include "nav_bar.html" with context %}
+</head>
+<body style="background-color: rgba(140,250,255,.4);
+background-image: url(https://www.transparenttextures.com/patterns/first-aid-kit.png);">
 
  <! For checking errors in input >
 {% block content %}
@@ -19,13 +24,16 @@
   </dd>
 {% endmacro %}
 
+<div class="container-fluid" > 
+<div class="row">
+ {% include "nav_bar.html" with context %}
+</div>
+	
 <div class="row"> 
-    <div> 
-	<h1 class="text-center">DermaGram</h1>
-    </div>
+
 <div class="login"> <!Called login as it uses the same style from style.css>
 	<div class="login-screen">
-		<div class="app-title">
+		<div class="app-title"  style="margin-top: 20px;">
 			<h1>Register</h1>
 		</div>
 
@@ -37,14 +45,14 @@
 	{{render_field(form.password)}}
 	{{render_field(form.confirm)}}
       </p>
-      <input type=submit value=Register class="btn btn-primary btn-large btn-block">
+      <input type=submit value=Register class="btn">
 	</div> <!login-screen>
 </div> <!class login>
 </form>
 </div> <!row>
+</div> <!container>  
 
 {% endblock %}
-
-
+</body>
 
 

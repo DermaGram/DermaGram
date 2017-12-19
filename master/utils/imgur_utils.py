@@ -86,6 +86,7 @@ class ImgurUtils:
                 image_info = {
                     'id': str(image.id),
                     'title': str(image.title),
+                    'link': str(image.link),
                     'location': info['location'],
                     'classification': info['classification'],
                     'datetime': self._get_local_time(float(image.datetime)),

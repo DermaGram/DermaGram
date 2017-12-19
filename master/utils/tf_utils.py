@@ -7,11 +7,13 @@ class TfUtils(object):
     @staticmethod
     def get_classifications(image_path):
         probabilities = get_probs(image_path)
-        return [
+        results = [
                 {"label":"Biopsy","probability":probabilities[2]},
                 {"label":"No Biopsy","probability":probabilities[1]},
                 {"label":"Unsure","probability":probabilities[0]}
                 ]
+        sorted_results = sorted(results, key=lambda k: k['probability'], reverse=True)
+        return sorted_results
 
     @staticmethod
     def get_top_classification(classification_data):
