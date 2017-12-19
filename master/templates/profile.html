@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,11 +40,24 @@
 		<!-- RIGHT COLUMN -->
 		<!-- @STEVE - here is where you should load the image from the row clicked on by the user -->
 		<div class="col-md-6">
-            <img class="img-responsive center-block" src={{ image_link }}  style="width: auto; max-height: 100%;">
+            <img class="img-responsive center-block" id="target" src={{ image_link }}  style="width: auto; max-height: 100%;">
 		</div>
 	</div>
     <!-- END SECOND ROW -->
 </div>
+
+<script>
+$(document).ready(() => {
+  $(".btnSelect").on('click',function(){
+    var currentRow=$(this).closest("tr");
+    var col6=currentRow.find("td:eq(5)").data("href");
+    var data=col6;
+    const $target=$('#target');
+    $target.attr("src", data);
+  });
+
+});
+</script>
 
 </body>
 </html>
