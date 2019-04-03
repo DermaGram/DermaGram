@@ -1,7 +1,7 @@
 # DermaGram
 CUNY Computer Science Capstone Project, Fall 2017  
 
-DermaGram is an image recognition classifier that analyzses photos of skin lesions. The goal is to accurately classify the most severe case of cancer: melanoma.
+DermaGram is an image recognition classifier that analyzes photos of skin lesions. The goal is to accurately classify the most severe case of cancer: melanoma.
 
 ### I. Data Sets
 All images used for *training* and *evaluation* will be saved to Imgur. The name of each album should correspond to it's organization and intended use-case. All images should be of uniform dimensions (800x600).
